@@ -7,8 +7,7 @@ public class Obstacle : MonoBehaviour
     public int damage = 1;
     public float speed;
 
-    void Update()
-    {
+    void Update() {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
         if (transform.position.x < -24)
@@ -17,8 +16,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             //other.GetComponent<Player>().health -= damage;
             Destroy(gameObject);
