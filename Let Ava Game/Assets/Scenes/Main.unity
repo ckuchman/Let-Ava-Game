@@ -6019,7 +6019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  jumpForce: 20
+  jumpForce: 13.7
   groundCheck: {fileID: 1279710665}
   checkRadius: 0.5
   whatIsGround:
@@ -6134,7 +6134,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 1.6
   m_Material: {fileID: 6200000, guid: bf9844d2dc4f34ca08fd941986cfe3d2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
