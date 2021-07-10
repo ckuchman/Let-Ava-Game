@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d40d3da7cfcab48ac741e1418564ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 1754417599737178, guid: 6d47fcbe854249f4cb5fde9b8ca19ac9, type: 3}
-  startTimeBtwSpawn: 2
-  decreaseTime: 0.05
-  minTime: 0.65
+  obstacle_ground: {fileID: 1754417599737178, guid: 6d47fcbe854249f4cb5fde9b8ca19ac9, type: 3}
+  obstacle_air: {fileID: 1754417599737178, guid: 97a2114ea1948b444a9633088493d075, type: 3}
+  minTimeBtwSpawn: 0.5
+  maxTimeBtwSpawn: 3
 --- !u!4 &70670607
 Transform:
   m_ObjectHideFlags: 0
