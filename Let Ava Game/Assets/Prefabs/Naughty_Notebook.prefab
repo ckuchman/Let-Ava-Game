@@ -100,5 +100,6 @@ MonoBehaviour:
   startTimeTillSpawn: 6
   timeBtwSpawn: 2
   startSpeed: 2
-  runBackXPos: -10
+  pauseTime: 0
+  runBackXPos: -5
   runBackSpeed: -5
