@@ -15,11 +15,10 @@ public class Player : MonoBehaviour
     private int extraJumps;
     public int extraJumpValue;
     public ParticleSystem dust;
-    private bool jumped;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        jumped = false;
         extraJumps = extraJumpValue;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -34,10 +33,14 @@ public class Player : MonoBehaviour
 
     void Update() {
         resetJumps();
-        if (multipleJumps()) {
-            Jump(1);
-        } else if(singleJump()) {
-            Jump(0);
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            if (extraJumps > 0) {
+                Jump(1);
+            } else if (extraJumps == 0 && isGrounded == true) {
+                Jump(0);
+            }
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
+            Attack();
         }
     }
 
@@ -57,19 +60,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    bool multipleJumps() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0) { 
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    bool singleJump() {
-        if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true) {
-            return true;
-        } else {
-            return false;
-        }
+    void Attack() {
+        // Play an attack animation
+        animator.SetTrigger("Shoot");
+        // Detect enemies in range of attack
+        // Destroy the enemy
     }
 }
