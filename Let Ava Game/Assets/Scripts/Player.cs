@@ -33,20 +33,43 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
-        if (isGrounded == true) {
-            extraJumps = extraJumpValue;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0) {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-            CreateDust();
-        } else if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true) {
-            rb.velocity = Vector2.up * jumpForce;
-            CreateDust();
+        resetJumps();
+        if (multipleJumps()) {
+            Jump(1);
+        } else if(singleJump()) {
+            Jump(0);
         }
     }
 
     void CreateDust() {
         dust.Play();
+    }
+
+    void Jump(int jumps) { 
+        rb.velocity = Vector2.up * jumpForce;
+        extraJumps = extraJumps - jumps;
+        CreateDust();
+    }
+
+    void resetJumps() {
+        if (isGrounded == true) {
+            extraJumps = extraJumpValue;
+        }
+    }
+
+    bool multipleJumps() {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0) { 
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    bool singleJump() {
+        if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
