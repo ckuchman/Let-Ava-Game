@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public float moveInput;
     private Rigidbody2D rb;
     private bool isGrounded;
     public Transform groundCheck;
@@ -27,8 +26,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
     void Update() {
