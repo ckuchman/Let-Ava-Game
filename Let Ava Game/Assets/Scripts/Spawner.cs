@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject obstacle;
+    public GameObject obstacle_ground;
+    public GameObject obstacle_air;
 
     private float timeBtwSpawn;
-    public float startTimeBtwSpawn;
-    public float decreaseTime;
-    public float minTime = 0.65f;
+    public float minTimeBtwSpawn;
+    public float maxTimeBtwSpawn;
 
     // Update is called once per frame
     void Update()
     {
         if (timeBtwSpawn <= 0)
         {
-            Instantiate(obstacle, transform.position, Quaternion.identity);
-            timeBtwSpawn = startTimeBtwSpawn;
-            if (startTimeBtwSpawn > minTime)
+            if (Random.value < 0.3) 
             {
-                startTimeBtwSpawn -= decreaseTime;
+                float rand_height = Random.Range(3, 6);
+                Instantiate(obstacle_air, new Vector3(transform.position.x, transform.position.y + rand_height, transform.position.x), Quaternion.identity);
             }
+            else
+            {
+                Instantiate(obstacle_ground, transform.position, Quaternion.identity);
+            }
+            
+            // Randomly set the time for the next obstacle
+            timeBtwSpawn = Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn);
         }
         else
         {
