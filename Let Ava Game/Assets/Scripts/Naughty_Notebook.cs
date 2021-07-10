@@ -6,45 +6,56 @@ public class Naughty_Notebook : MonoBehaviour
 {
     public GameObject paperplane;
 
-    private float timeTillSpawn;
+    private float _timeTillSpawn;
     public float startTimeTillSpawn;
     public float timeBtwSpawn;
     public float startSpeed;
-    private bool hasPaused = false;
+    private bool _hasPaused = false;
     public float pauseTime;
-    public float pauseTimeTillRunBack;
+    private float _pauseTimeTillRunBack = 0;
     public float runBackXPos;
     public float runBackSpeed;
-    private float speed;
+    private float _speed;
 
-    void Start()
-    {
-        timeTillSpawn = startTimeTillSpawn;
-        speed = startSpeed;
-
+    void Start() {
+        _timeTillSpawn = startTimeTillSpawn;
+        _speed = startSpeed;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+    void Update() {
+        // When it hits a certain closeness, it first pauses
+        if (transform.position.x < runBackXPos && !_hasPaused) {
+            _speed = 0;
+            _hasPaused = true;
+            _pauseTimeTillRunBack = pauseTime;
+        }
 
-        //When it hits a certain closeness, it first pauses then runs away
-        if (transform.position.x < runBackXPos)
-        {
-            speed = runBackSpeed;
+        // It stays paused for set time
+        if (_hasPaused && _pauseTimeTillRunBack >= 0) {
+            _pauseTimeTillRunBack -= Time.deltaTime;
+        }
+
+        // After pausing it runs back
+        if (_pauseTimeTillRunBack < 0) {
+            _speed = runBackSpeed;
         }
         
         // Spawns paperplanes
-        if (timeTillSpawn <= 0)
-        {
-            Instantiate(paperplane, transform.position, Quaternion.identity);
+        if (_timeTillSpawn <= 0) {
+            Instantiate(paperplane, transform.position, Quaternion.Euler(0, 0, -35));
             
-            timeTillSpawn = timeBtwSpawn;
+            _timeTillSpawn = timeBtwSpawn;
+        } else {
+            _timeTillSpawn -= Time.deltaTime;
         }
-        else
-        {
-            timeTillSpawn -= Time.deltaTime;
-        }
+
+        // Movement
+        transform.Translate(Vector2.left * _speed * Time.deltaTime);
+
+
+        // Vertical ossilation to make movement seem more natural
+        float vertical = Mathf.Sin(Time.time * 2) * .0005f;
+        transform.position = transform.position + new Vector3(0.0f, vertical, 0.0f);
     }
 }

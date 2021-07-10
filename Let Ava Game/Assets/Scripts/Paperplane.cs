@@ -5,31 +5,50 @@ using UnityEngine;
 public class Paperplane : MonoBehaviour
 {
     public int damage = 1;
-    public float init_speed_up, init_speed_left;
+    public float speed = 9;
+    public float rotatingSpeed = 200;
+    private bool _passedPlayer = false;
+    private GameObject _target;
+    Rigidbody2D rb;
 
-    void Update()
-    {
-        var target = GameObject.FindWithTag("Player").transform;
-        
-        transform.Translate(Vector2.left * init_speed_left * Time.deltaTime);
-
-        if (target.position.y > transform.position.y)
-        {
-            transform.Translate(Vector2.up * init_speed_up * Time.deltaTime);
-        } 
-        else
-        {
-            transform.Translate(Vector2.up * -init_speed_up * Time.deltaTime);
+    void Start() {
+        _target = GameObject.FindWithTag("Player");
+        rb = GetComponent<Rigidbody2D> ();
+    }
+ 
+    void FixedUpdate() {
+        // Check if it is passed the player
+        if (transform.position.x < _target.transform.position.x) {
+            _passedPlayer = true;
         }
 
-        if (transform.position.x < -12)
-        {
+        // Tracks the player until it passed by the player
+        if (!_passedPlayer) {
+            Vector2 point2Target = (Vector2)transform.position - (Vector2)_target.transform.position;
+            point2Target.Normalize();
+
+            float cross = Vector3.Cross(point2Target, transform.right).z;
+
+            if (cross < 0) {
+                rb.angularVelocity = rotatingSpeed;
+            } else if (cross > 0) {
+                rb.angularVelocity = -rotatingSpeed;
+            } else {
+                rb.angularVelocity = 0;
+                //rotatingSpeed = 0;
+            }
+        } else {
+            rb.angularVelocity = 0;
+        }
+
+        rb.velocity = -transform.right * speed;
+
+        if (transform.position.x < -24) {
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             //other.GetComponent<Player>().health -= damage;
             Destroy(gameObject);
