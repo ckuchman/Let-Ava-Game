@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
 
     private float timeBtwSpawn;
     public float startTimeBtwSpawn;
+    public float decreaseTime;
+    public float minTime = 0.65f;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +18,10 @@ public class Spawner : MonoBehaviour
         {
             Instantiate(obstacle, transform.position, Quaternion.identity);
             timeBtwSpawn = startTimeBtwSpawn;
+            if (startTimeBtwSpawn > minTime)
+            {
+                startTimeBtwSpawn -= decreaseTime;
+            }
         }
         else
         {
