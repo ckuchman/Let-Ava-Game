@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public float moveInput;
     private Rigidbody2D rb;
     private bool isGrounded;
     public Transform groundCheck;
@@ -16,6 +15,8 @@ public class Player : MonoBehaviour
     public int extraJumpValue;
     public ParticleSystem dust;
     public Animator animator;
+    public ProjectileBehavior projectile;
+    public Transform launchOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
     void Update() {
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
                 Jump(0);
             }
         } else if (Input.GetKeyDown(KeyCode.Space)) {
-            Attack();
+            Shoot();
         }
     }
 
@@ -60,9 +59,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Attack() {
+    void Shoot() {
         // Play an attack animation
-        animator.SetTrigger("Shoot");
+        // animator.SetTrigger("Shoot");
+        Instantiate(projectile, launchOffset.position, transform.rotation);
         // Detect enemies in range of attack
         // Destroy the enemy
     }
