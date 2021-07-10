@@ -10,11 +10,6 @@ public class RepeatingBackground : MonoBehaviour
     public float endX;
     public float startX;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
