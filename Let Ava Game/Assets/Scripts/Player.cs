@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public int extraJumpValue;
     public ParticleSystem dust;
     public Animator animator;
+    public ProjectileBehavior projectile;
+    public Transform launchOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,7 @@ public class Player : MonoBehaviour
                 Jump(0);
             }
         } else if (Input.GetKeyDown(KeyCode.Space)) {
-            Attack();
+            Shoot();
         }
     }
 
@@ -57,9 +59,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Attack() {
+    void Shoot() {
         // Play an attack animation
-        animator.SetTrigger("Shoot");
+        // animator.SetTrigger("Shoot");
+        Instantiate(projectile, launchOffset.position, transform.rotation);
         // Detect enemies in range of attack
         // Destroy the enemy
     }
