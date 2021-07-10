@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     public float minTimeBtwSpawn;
     public float maxTimeBtwSpawn;
     private Vector3 _startPosition;
+    public int minAirHeight, maxAirHeight;
 
 
     void Start () {
@@ -21,7 +22,7 @@ public class Spawner : MonoBehaviour
     void Update() {
         if (_timeBtwSpawn <= 0) {
             if (Random.value < 0.3) {
-                float rand_height = Random.Range(3, 6);
+                float rand_height = Random.Range(minAirHeight, maxAirHeight);
                 Instantiate(obstacle_air, _startPosition + new Vector3(0.0f, rand_height, 0.0f), Quaternion.identity);
             } else {
                 Instantiate(obstacle_ground, transform.position, Quaternion.identity);
