@@ -53,5 +53,10 @@ public class Paperplane : MonoBehaviour
             //other.GetComponent<Player>().health -= damage;
             Destroy(gameObject);
         }
+
+        //Is is destroyed by projectiles
+        if (other.CompareTag("Projectile")) {
+            Destroy(gameObject);
+        }
     }
 }
