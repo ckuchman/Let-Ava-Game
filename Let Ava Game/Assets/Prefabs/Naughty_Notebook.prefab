@@ -97,4 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperplane: {fileID: 1377034194954696418, guid: e71522c2b96f4aa4c87aaed71840d95b, type: 3}
+  startTimeTillSpawn: 6
   timeBtwSpawn: 2
+  startSpeed: 2
+  runBackXPos: -10
+  runBackSpeed: -5
