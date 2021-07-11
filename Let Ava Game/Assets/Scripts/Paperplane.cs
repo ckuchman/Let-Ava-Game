@@ -13,7 +13,7 @@ public class Paperplane : MonoBehaviour
     Rigidbody2D rb;
 
     void Start() {
-        _target = GameObject.FindWithTag("Player");
+        _target = GameObject.Find("Player");
         _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
         rb = GetComponent<Rigidbody2D> ();
     }
