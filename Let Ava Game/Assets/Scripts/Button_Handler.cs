@@ -10,8 +10,10 @@ public class Button_Handler : MonoBehaviour
     }
 
     public void startGame() {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Main");
-        Time.timeScale = 1;
+        GameObject.Find("MainGameBGM").SetActive(true);
+        GameObject.Find("GameOverBGM").SetActive(false);
     }  
 
     public void tutorial() {
