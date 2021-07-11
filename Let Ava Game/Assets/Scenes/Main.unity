@@ -1193,6 +1193,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2718507489328006801, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1549309555}
+    - target: {fileID: 2718507489328006801, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
       propertyPath: jumpForce
       value: 18
       objectReference: {fileID: 0}
@@ -1896,6 +1900,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546562114}
   m_CullTransparentMesh: 1
+--- !u!95 &1549309555 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2718507489328006800, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
+  m_PrefabInstance: {fileID: 761035933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1567030897
 GameObject:
   m_ObjectHideFlags: 0
