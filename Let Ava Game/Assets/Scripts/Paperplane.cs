@@ -37,7 +37,6 @@ public class Paperplane : MonoBehaviour
                 rb.angularVelocity = -rotatingSpeed;
             } else {
                 rb.angularVelocity = 0;
-                //rotatingSpeed = 0;
             }
         } else {
             rb.angularVelocity = 0;
