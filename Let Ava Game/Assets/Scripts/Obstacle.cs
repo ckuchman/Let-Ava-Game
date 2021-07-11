@@ -7,6 +7,11 @@ public class Obstacle : MonoBehaviour
     public int damage = 1;
     public float speed;
     public bool isDestructible;
+    private SFXPlayer _SFXPlayer;
+
+    void Start() {
+        _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
+    }
 
     void Update() {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -21,12 +26,16 @@ public class Obstacle : MonoBehaviour
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
             other.GetComponent<Player>().health -= damage;
+            _SFXPlayer.playExplode();
             Destroy(gameObject);
         }
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile") && isDestructible) {
+            _SFXPlayer.playExplode();
             Destroy(gameObject);
+        } else if (other.CompareTag("Projectile") && !isDestructible) {
+            _SFXPlayer.playHit();
         }
     }
 }
