@@ -80,7 +80,7 @@ public class TutorialManager : MonoBehaviour
             } else {
                 endTutorialTime -= Time.deltaTime;
             }
-        } else if (popUpIndex == 9) {
+        } else if (popUpIndex >= 9) {
             if (player.transform.position.x > 25) {
                 SceneManager.LoadScene("MainMenu"); 
             } else {

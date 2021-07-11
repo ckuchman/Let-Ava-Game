@@ -1514,7 +1514,7 @@ MonoBehaviour:
   waitTimeVal: 1.8
   groundToAirWait: 8
   endTutorialTime: 6
-  speed: 0
+  speed: 10
 --- !u!4 &911975046
 Transform:
   m_ObjectHideFlags: 0
