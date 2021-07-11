@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class SFXPlayer : MonoBehaviour
 {
-    public AudioSource hit;
-    public AudioSource explode;
-    public AudioSource lightExplode;
+    public AudioSource basicEnemyDestroy;
+    public AudioSource lightEnemyDestroy;
+    public AudioSource indestructableHit;
+    public AudioSource buttonClick;
+    public AudioSource playerHit;
+    public AudioSource playerShot;
+    public AudioSource playerJump;
 
-    public void playHit() {
-        hit.Play();
+    public void playBasicEnemyDestroy() {
+        basicEnemyDestroy.Play();
     }
 
-    public void playExplode() {
-        explode.Play();
+    public void playLightEnemyDestroy() {
+        lightEnemyDestroy.Play();
     }
 
-    public void playLightExplode() {
-        lightExplode.Play();
+    public void playIndestructableHit() {
+        indestructableHit.Play();
+    }
+    
+    public void playButtonClick() {
+        buttonClick.Play();
+    }
+
+    public void playPlayerHit() {
+        playerHit.Play();
+    }
+
+    public void playPlayerShot() {
+        playerShot.Play();
+    }
+    public void playPlayerJump() {
+        playerJump.Play();
     }
 }
