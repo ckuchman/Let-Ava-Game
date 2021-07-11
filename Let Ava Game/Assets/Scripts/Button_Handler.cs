@@ -12,4 +12,8 @@ public class Button_Handler : MonoBehaviour
     public void startGame() {  
         SceneManager.LoadScene("Main");  
     }  
+
+    public void tutorial() {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
