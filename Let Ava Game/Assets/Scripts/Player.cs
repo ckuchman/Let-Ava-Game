@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public ProjectileBehavior projectile;
     public Transform launchOffset;
+    public int health;
     // Start is called before the first frame update
     void Start()
     {

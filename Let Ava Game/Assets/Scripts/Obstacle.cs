@@ -20,7 +20,7 @@ public class Obstacle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
-            //other.GetComponent<Player>().health -= damage;
+            other.GetComponent<Player>().health -= damage;
             Destroy(gameObject);
         }
 
