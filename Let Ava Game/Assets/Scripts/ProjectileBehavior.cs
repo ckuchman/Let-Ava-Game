@@ -10,6 +10,9 @@ public class ProjectileBehavior : MonoBehaviour
     void Update()
     {
         transform.position += transform.right * Time.deltaTime * speed;
+        if (transform.position.x > 24) {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
