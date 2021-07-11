@@ -5,6 +5,7 @@ using UnityEngine;
 public class Naughty_Notebook : MonoBehaviour
 {
     public GameObject paperplane;
+    public GameObject NNSpawner;    
 
     private float _timeTillSpawn;
     public float startTimeTillSpawn;
@@ -57,5 +58,10 @@ public class Naughty_Notebook : MonoBehaviour
         // Vertical ossilation to make movement seem more natural
         float vertical = Mathf.Sin(Time.time * 2) * .0005f;
         transform.position = transform.position + new Vector3(0.0f, vertical, 0.0f);
+
+        //Removes the NN when it passes behind the spawner
+        if (transform.position.x > NNSpawner.transform.position.x) {
+            Destroy(gameObject);
+        }
     }
 }

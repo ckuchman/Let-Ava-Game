@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 805602869
-  m_SortingLayer: 2
-  m_SortingOrder: -1
+  m_SortingLayerID: 1985140887
+  m_SortingLayer: 3
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300030, guid: 4b00c4fcb1be91245b2dab5149c61c5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperplane: {fileID: 1377034194954696418, guid: e71522c2b96f4aa4c87aaed71840d95b, type: 3}
-  startTimeTillSpawn: 6
+  NNSpawner: {fileID: 4509737791953562720, guid: 49c61665d6253d7498c59f3b1e418bf2, type: 3}
+  startTimeTillSpawn: 4
   timeBtwSpawn: 2
   startSpeed: 2
   pauseTime: 0
-  runBackXPos: -5
+  runBackXPos: 0
   runBackSpeed: -5
