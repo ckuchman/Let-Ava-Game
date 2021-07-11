@@ -9,10 +9,12 @@ public class Paperplane : MonoBehaviour
     public float rotatingSpeed = 200;
     private bool _passedPlayer = false;
     private GameObject _target;
+    private SFXPlayer _SFXPlayer;
     Rigidbody2D rb;
 
     void Start() {
         _target = GameObject.FindWithTag("Player");
+        _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
         rb = GetComponent<Rigidbody2D> ();
     }
  
@@ -52,11 +54,13 @@ public class Paperplane : MonoBehaviour
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
             other.GetComponent<Player>().health -= damage;
+            _SFXPlayer.playLightExplode();
             Destroy(gameObject);
         }
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile")) {
+            _SFXPlayer.playLightExplode();
             Destroy(gameObject);
         }
     }
