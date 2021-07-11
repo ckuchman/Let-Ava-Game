@@ -5,23 +5,22 @@ using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
+    private Player _player;
+    private GameState _gameState;
     public Text healthText;
     public Text coinText;
-    public float coinScore = 0;
-    private Player _player;
 
     void Start() {
-        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        _player = GameObject.Find("Player").GetComponent<Player>();
+        _gameState = GameObject.Find("GameState").GetComponent<GameState>();
         healthText.text = _player.health.ToString();
-        coinText.text = ((int)coinScore).ToString();
+        coinText.text = ((int)_gameState.coinScore).ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = _player.health.ToString();
-        coinText.text = ((int)coinScore).ToString();
-
-        coinScore += 1.0f * Time.deltaTime;
+        coinText.text = ((int)_gameState.coinScore).ToString();
     }
 }
