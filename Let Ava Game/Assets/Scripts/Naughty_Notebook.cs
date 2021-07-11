@@ -12,6 +12,7 @@ public class Naughty_Notebook : MonoBehaviour
     public float startTimeTillSpawn;
     public float minTimeBtwSpawn;
     public float maxTimeBtwSpawn;
+    public float timeBtwSpawn;
     public float startSpeed;
     private bool _hasPaused = false;
     public float pauseTime;
