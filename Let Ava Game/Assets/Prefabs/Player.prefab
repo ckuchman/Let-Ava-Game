@@ -122,7 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   jumpForce: 20
-  moveInput: 0
   groundCheck: {fileID: 2718507489369915466}
   checkRadius: 0.5
   whatIsGround:
@@ -130,6 +129,10 @@ MonoBehaviour:
     m_Bits: 64
   extraJumpValue: 4
   dust: {fileID: 2718507491052135358}
+  animator: {fileID: 0}
+  projectile: {fileID: 0}
+  launchOffset: {fileID: 0}
+  health: 0
 --- !u!50 &2718507489328006805
 Rigidbody2D:
   serializedVersion: 4
@@ -164,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: 0.63}
+  m_Offset: {x: 0.05569327, y: 0.63}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.1}
@@ -175,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.16, y: 1.21}
+  m_Size: {x: 1.0713866, y: 1.21}
   m_EdgeRadius: 0
 --- !u!1 &2718507489369915467
 GameObject:

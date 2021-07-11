@@ -6,10 +6,12 @@ public class GameState : MonoBehaviour
 {
     public float coinScore = 0;
     public float distance = 0;
+    public float time = 0;
     
     void Update()
     {
-        coinScore += 1.0f * Time.deltaTime;
+        coinScore += .6f * Time.deltaTime;
         distance += 1.5f * Time.deltaTime;
+        time += 1.0f * Time.deltaTime;
     }
 }
