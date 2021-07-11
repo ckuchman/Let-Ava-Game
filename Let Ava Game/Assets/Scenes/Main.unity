@@ -161,6 +161,8 @@ MonoBehaviour:
   coin: {fileID: 1754417599737178, guid: c0ba81a9b0a91aa45bfb981e15405425, type: 3}
   minTimeBtwSpawn: 0.25
   maxTimeBtwSpawn: 2.5
+  maxDifficultyMinTimeBtwSpawn: 0
+  maxDifficultyMaxTimeBtwSpawn: 0
   minAirHeight: 6
   maxAirHeight: 12
 --- !u!4 &70670607
@@ -2133,8 +2135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832149235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2203, y: 1.13, z: 0}
-  m_LocalScale: {x: 37.06401, y: 1.0185664, z: 1}
+  m_LocalPosition: {x: -3.7335, y: 1.13, z: 0}
+  m_LocalScale: {x: 44.973473, y: 1.0185664, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3075,7 +3077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733399748661508914, guid: ae3027efcf29343fbb9a5d7a8a96a6f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.3
+      value: -24.27
       objectReference: {fileID: 0}
     - target: {fileID: 5733399748661508914, guid: ae3027efcf29343fbb9a5d7a8a96a6f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3112,6 +3114,10 @@ PrefabInstance:
     - target: {fileID: 5733399748661508914, guid: ae3027efcf29343fbb9a5d7a8a96a6f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733399748661508917, guid: ae3027efcf29343fbb9a5d7a8a96a6f5, type: 3}
+      propertyPath: speed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5733399748661508918, guid: ae3027efcf29343fbb9a5d7a8a96a6f5, type: 3}
       propertyPath: m_Name
