@@ -20,12 +20,20 @@ public class GameOver_Menu : MonoBehaviour
         
         coinText.text = ((int)_gameState.coinScore).ToString();
         distanceText.text = ((int)_gameState.distance).ToString();
+
+        string minutes = Mathf.Floor(_gameState.time / 60).ToString("00");
+        string seconds = (_gameState.time % 60).ToString("00");
+        timeText.text = string.Format("{0}:{1}", minutes, seconds);
     }
 
     // Update is called once per frame
     void Update() {
         coinText.text = ((int)_gameState.coinScore).ToString();
         distanceText.text = ((int)_gameState.distance).ToString();
+
+        string minutes = Mathf.Floor(_gameState.time / 60).ToString("00");
+        string seconds = (_gameState.time % 60).ToString("00");
+        timeText.text = string.Format("{0}:{1}", minutes, seconds);
         
         if (_player.health <= 0) {
             MainGameBGM.SetActive(false);
