@@ -14,24 +14,40 @@ public class Player : MonoBehaviour
     private int extraJumps;
     public int extraJumpValue;
     public ParticleSystem dust;
-    public Animator animator;
+    private Animator animator;
     public ProjectileBehavior projectile;
     public Transform launchOffset;
     public int health;
+    private int prevHealth;
     // Start is called before the first frame update
     void Start()
     {
         extraJumps = extraJumpValue;
+        prevHealth = health;
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        animator.SetBool("gameOver", false);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if (isGrounded == true) {
+            animator.SetBool("isRunning", true);
+        } else {
+            animator.SetBool("isRunning", false);
+        }
     }
 
     void Update() {
+        if (prevHealth > health) { 
+            animator.SetTrigger("tookDamage");
+            if (health == 0) {
+                animator.SetBool("gameOver", true);
+            }
+            prevHealth = health;
+        }
         resetJumps();
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
             if (extraJumps > 0) {
@@ -49,6 +65,7 @@ public class Player : MonoBehaviour
     }
 
     void Jump(int jumps) { 
+        animator.SetTrigger("takeOff");
         rb.velocity = Vector2.up * jumpForce;
         extraJumps = extraJumps - jumps;
         CreateDust();
