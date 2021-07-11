@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
     public int health;
     private int prevHealth;
     private SFXPlayer _SFXPlayer;
+    public float maxProjectileSpeed;
+    public float projectileChargeRate;
+    public float currentShotCharge;
+    public float shootRate;
+    private float _timeTillShoot = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +37,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim.SetBool("gameOver", false);
         _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
-
+        currentShotCharge = maxProjectileSpeed;
     }
 
     // Update is called once per frame
@@ -62,6 +69,20 @@ public class Player : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Space)) {
             Shoot();
         }
+
+        // Handle the slow charge of the gun
+        if (currentShotCharge < maxProjectileSpeed) {
+            currentShotCharge += projectileChargeRate * Time.deltaTime;
+
+            if (currentShotCharge > maxProjectileSpeed) {
+                currentShotCharge = maxProjectileSpeed;
+            }
+        }
+
+        // Handle shoot rate limiting
+        if (_timeTillShoot > 0) {
+            _timeTillShoot -= 1 * Time.deltaTime;
+        }
     }
 
     void CreateDust() {
@@ -83,11 +104,12 @@ public class Player : MonoBehaviour
     }
 
     void Shoot() {
-        // Play an attack animation
-        // animator.SetTrigger("Shoot");
-        Instantiate(projectile, launchOffset.position, transform.rotation);
-        _SFXPlayer.playPlayerShot();
-        // Detect enemies in range of attack
-        // Destroy the enemy
+        if (_timeTillShoot <= 0) {
+            ProjectileBehavior proj = Instantiate(projectile, launchOffset.position, transform.rotation);
+            proj.setSpeed(currentShotCharge);
+            _SFXPlayer.playPlayerShot();
+            currentShotCharge = 0;
+            _timeTillShoot = shootRate;
+        }
     }
 }

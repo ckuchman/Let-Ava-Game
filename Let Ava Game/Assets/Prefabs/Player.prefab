@@ -164,6 +164,10 @@ MonoBehaviour:
   projectile: {fileID: 0}
   launchOffset: {fileID: 0}
   health: 5
+  maxProjectileSpeed: 60
+  projectileChargeRate: 40
+  currentShotCharge: 0
+  shootRate: 0.2
 --- !u!50 &2718507489328006805
 Rigidbody2D:
   serializedVersion: 4
