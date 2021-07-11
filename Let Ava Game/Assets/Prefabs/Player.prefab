@@ -167,7 +167,7 @@ MonoBehaviour:
   maxProjectileSpeed: 60
   projectileChargeRate: 40
   currentShotCharge: 0
-  shootRate: 0.2
+  shootRate: 0.25
 --- !u!50 &2718507489328006805
 Rigidbody2D:
   serializedVersion: 4
