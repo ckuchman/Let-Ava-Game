@@ -15,26 +15,43 @@ public class Player : MonoBehaviour
     public int extraJumpValue;
     public ParticleSystem dust;
     public Animator animator;
+    private Animator anim;
     public ProjectileBehavior projectile;
     public Transform launchOffset;
     public int health;
+    private int prevHealth;
     private SFXPlayer _SFXPlayer;
-
     // Start is called before the first frame update
     void Start()
     {
         extraJumps = extraJumpValue;
+        prevHealth = health;
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        anim.SetBool("gameOver", false);
         _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if (isGrounded == true) {
+            anim.SetBool("isRunning", true);
+        } else {
+            anim.SetBool("isRunning", false);
+        }
     }
 
     void Update() {
+        if (prevHealth > health) { 
+            anim.SetTrigger("tookDamage");
+            if (health == 0) {
+                anim.SetBool("gameOver", true);
+            }
+            prevHealth = health;
+        }
         resetJumps();
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
             if (extraJumps > 0) {
@@ -52,6 +69,7 @@ public class Player : MonoBehaviour
     }
 
     void Jump(int jumps) { 
+        anim.SetTrigger("takeOff");
         rb.velocity = Vector2.up * jumpForce;
         extraJumps = extraJumps - jumps;
         CreateDust();
