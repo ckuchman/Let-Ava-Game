@@ -15,6 +15,8 @@ public class Spawner : MonoBehaviour
     private float _timeBtwSpawn;
     public float minTimeBtwSpawn;
     public float maxTimeBtwSpawn;
+    public float maxDifficultyMinTimeBtwSpawn;
+    public float maxDifficultyMaxTimeBtwSpawn;
     private Vector3 _startPosition;
     public int minAirHeight, maxAirHeight;
 
@@ -32,10 +34,10 @@ public class Spawner : MonoBehaviour
             float rand1 = Random.value;
             float rand2 = Random.value;
             // Handle pickups
-            if (rand1 < 0.6) {
+            if (rand1 < 0.5) {
                 float rand_height = Random.Range(1, maxAirHeight);
                 
-                if (rand2 < 0.95) {
+                if (rand2 < 0.97) {
                     obst = coin;
                 } else {
                     obst = heart;
@@ -74,6 +76,15 @@ public class Spawner : MonoBehaviour
             _timeBtwSpawn = Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn);
         } else {
             _timeBtwSpawn -= Time.deltaTime;
+        }
+
+        // Update difficulty
+        if (minTimeBtwSpawn > maxDifficultyMinTimeBtwSpawn) {
+            minTimeBtwSpawn -= Time.deltaTime * 0.01f;
+        }
+
+        if (maxTimeBtwSpawn > maxDifficultyMaxTimeBtwSpawn) {
+            maxTimeBtwSpawn -= Time.deltaTime * 0.04f;
         }
     }
 }
