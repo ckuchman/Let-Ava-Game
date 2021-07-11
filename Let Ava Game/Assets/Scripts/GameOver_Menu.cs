@@ -8,6 +8,8 @@ public class GameOver_Menu : MonoBehaviour
     private Player _player;
     private GameState _gameState;
     public GameObject gameOverMenuUI;
+    public GameObject MainGameBGM;
+    public GameObject GameOverBGM;
     public Text distanceText;
     public Text coinText;
     public Text timeText;
@@ -15,7 +17,7 @@ public class GameOver_Menu : MonoBehaviour
     void Start() {
         _player = GameObject.Find("Player").GetComponent<Player>();
         _gameState = GameObject.Find("GameState").GetComponent<GameState>();
-
+        
         coinText.text = ((int)_gameState.coinScore).ToString();
         distanceText.text = ((int)_gameState.distance).ToString();
     }
@@ -26,18 +28,11 @@ public class GameOver_Menu : MonoBehaviour
         distanceText.text = ((int)_gameState.distance).ToString();
         
         if (_player.health <= 0) {
-            Pause();
+            MainGameBGM.SetActive(false);
+            GameOverBGM.SetActive(true);
+            gameOverMenuUI.SetActive(true);
+            Time.timeScale = 0;
             _player.health = 5;
         }
-    }
-
-    public void Resume() {
-        gameOverMenuUI.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    void Pause() {
-        gameOverMenuUI.SetActive(true);
-        Time.timeScale = 0;
     }
 }
