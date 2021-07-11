@@ -627,8 +627,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248954459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2203, y: 1.13, z: 0}
-  m_LocalScale: {x: 37.06401, y: 1.0185664, z: 1}
+  m_LocalPosition: {x: -4.4395, y: 1.13, z: 0}
+  m_LocalScale: {x: 46.3819, y: 1.0185664, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1510,9 +1510,11 @@ MonoBehaviour:
   - {fileID: 1645620668}
   groundSpawner: {fileID: 1996209515}
   airSpawner: {fileID: 1955084330}
+  player: {fileID: 1081409155}
   waitTimeVal: 1.8
   groundToAirWait: 8
   endTutorialTime: 6
+  speed: 0
 --- !u!4 &911975046
 Transform:
   m_ObjectHideFlags: 0
@@ -1552,6 +1554,11 @@ MonoBehaviour:
   obstacle: {fileID: 0}
   startTimeBtwObstacle: 0
   numOfObstacles: 0
+--- !u!1 &1081409155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2718507489328006802, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
+  m_PrefabInstance: {fileID: 1115760852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1115760852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1621,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718507489328006806, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.3
+      value: -24.27
       objectReference: {fileID: 0}
     - target: {fileID: 2718507489328006806, guid: c1f117a93ca6b491b93f6ca943de063a, type: 3}
       propertyPath: m_LocalPosition.y
