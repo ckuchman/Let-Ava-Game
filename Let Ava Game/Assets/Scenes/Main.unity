@@ -154,10 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle_ground: {fileID: 1754417599737178, guid: 6d47fcbe854249f4cb5fde9b8ca19ac9, type: 3}
   obstacle_ground2: {fileID: 1754417599737178, guid: 3b1e0a3f0f9ca61418660daa020a3307, type: 3}
+  obstacle_ground3: {fileID: 1754417599737178, guid: c35dab00c31e18c4da4632b5c3178223, type: 3}
   obstacle_air: {fileID: 1754417599737178, guid: 97a2114ea1948b444a9633088493d075, type: 3}
   obstacle_air2: {fileID: 1754417599737178, guid: a09bb5dbde6fb814ebc651577e0ccdf2, type: 3}
-  minTimeBtwSpawn: 1
-  maxTimeBtwSpawn: 5
+  heart: {fileID: 1754417599737178, guid: e2bcda9a8830e2943b558a66bf6f4d58, type: 3}
+  coin: {fileID: 1754417599737178, guid: c0ba81a9b0a91aa45bfb981e15405425, type: 3}
+  minTimeBtwSpawn: 0.25
+  maxTimeBtwSpawn: 2.5
   minAirHeight: 6
   maxAirHeight: 12
 --- !u!4 &70670607
@@ -198,6 +201,9 @@ MonoBehaviour:
   playerHit: {fileID: 0}
   playerShot: {fileID: 0}
   playerJump: {fileID: 0}
+  coinCollect: {fileID: 0}
+  heartCollect: {fileID: 0}
+  collectDestroy: {fileID: 0}
 --- !u!1001 &204549190
 PrefabInstance:
   m_ObjectHideFlags: 0

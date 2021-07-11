@@ -11,6 +11,9 @@ public class SFXPlayer : MonoBehaviour
     public AudioSource playerHit;
     public AudioSource playerShot;
     public AudioSource playerJump;
+    public AudioSource coinCollect;
+    public AudioSource heartCollect;
+    public AudioSource collectDestroy;
 
     public void playBasicEnemyDestroy() {
         basicEnemyDestroy.Play();
@@ -37,5 +40,14 @@ public class SFXPlayer : MonoBehaviour
     }
     public void playPlayerJump() {
         playerJump.Play();
+    }
+    public void playCoinCollect() {
+        coinCollect.Play();
+    }
+    public void playHeartCollect() {
+        heartCollect.Play();
+    }
+    public void playCollectDestroy() {
+        collectDestroy.Play();
     }
 }
