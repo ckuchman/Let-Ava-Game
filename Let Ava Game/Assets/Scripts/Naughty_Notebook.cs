@@ -57,7 +57,6 @@ public class Naughty_Notebook : MonoBehaviour
         // Spawns projectiles
         if (_timeTillSpawn <= 0) {
             _animator.SetTrigger("attack");
-            Instantiate(paperplane, transform.position, Quaternion.Euler(0, 0, -35));
             _timeTillSpawn = timeBtwSpawn;
             if (Random.value < 0.8) {
                 Instantiate(paperplane, transform.position, Quaternion.Euler(0, 0, -35));
