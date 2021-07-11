@@ -19,7 +19,7 @@ public class GameOver_Menu : MonoBehaviour
         _gameState = GameObject.Find("GameState").GetComponent<GameState>();
         
         coinText.text = ((int)_gameState.coinScore).ToString();
-        distanceText.text = ((int)_gameState.distance).ToString();
+        distanceText.text = string.Format("{0}ft", ((int)_gameState.distance).ToString());
 
         string minutes = Mathf.Floor(_gameState.time / 60).ToString("00");
         string seconds = (_gameState.time % 60).ToString("00");
@@ -29,7 +29,7 @@ public class GameOver_Menu : MonoBehaviour
     // Update is called once per frame
     void Update() {
         coinText.text = ((int)_gameState.coinScore).ToString();
-        distanceText.text = ((int)_gameState.distance).ToString();
+        distanceText.text = string.Format("{0}ft", ((int)_gameState.distance).ToString());
 
         string minutes = Mathf.Floor(_gameState.time / 60).ToString("00");
         string seconds = (_gameState.time % 60).ToString("00");
