@@ -9,10 +9,12 @@ public class TutorialManager : MonoBehaviour
     private int popUpIndex;
     public GameObject groundSpawner;
     public GameObject airSpawner;
+    public GameObject player;
     public float waitTimeVal;
     public float groundToAirWait;
     private float waitTime;
     public float endTutorialTime;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -79,10 +81,10 @@ public class TutorialManager : MonoBehaviour
                 endTutorialTime -= Time.deltaTime;
             }
         } else if (popUpIndex == 9) {
-            if (waitTime <= 0) {
+            if (player.transform.position.x > 25) {
                 SceneManager.LoadScene("MainMenu"); 
             } else {
-                waitTime -= Time.deltaTime;
+                player.transform.Translate(Vector2.right * speed * Time.deltaTime);
             }
         }
     }
