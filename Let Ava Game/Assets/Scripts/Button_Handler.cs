@@ -9,8 +9,9 @@ public class Button_Handler : MonoBehaviour
         Application.Quit();
     }
 
-    public void startGame() {  
-        SceneManager.LoadScene("Main");  
+    public void startGame() {
+        SceneManager.LoadScene("Main");
+        Time.timeScale = 1;
     }  
 
     public void tutorial() {
