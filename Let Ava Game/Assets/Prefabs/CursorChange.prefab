@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1749b49947f36184695fec517abc6c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 2800000, guid: 76307cbf3a8c5d4488d8941c60c68ba5, type: 3}
+  crosshair: {fileID: 2800000, guid: bbf1c5b95ab114e1495dd943ea634a4f, type: 3}

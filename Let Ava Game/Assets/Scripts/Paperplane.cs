@@ -54,13 +54,13 @@ public class Paperplane : MonoBehaviour
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
             other.GetComponent<Player>().health -= damage;
-            _SFXPlayer.playLightExplode();
+            _SFXPlayer.playPlayerHit();
             Destroy(gameObject);
         }
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile")) {
-            _SFXPlayer.playLightExplode();
+            _SFXPlayer.playLightEnemyDestroy();
             Destroy(gameObject);
         }
     }

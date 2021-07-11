@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Transform launchOffset;
     public int health;
     private int prevHealth;
+    private SFXPlayer _SFXPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         anim.SetBool("gameOver", false);
+        _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
+
     }
 
     // Update is called once per frame
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.up * jumpForce;
         extraJumps = extraJumps - jumps;
         CreateDust();
+        _SFXPlayer.playPlayerJump();
     }
 
     void resetJumps() {
@@ -82,6 +86,7 @@ public class Player : MonoBehaviour
         // Play an attack animation
         // animator.SetTrigger("Shoot");
         Instantiate(projectile, launchOffset.position, transform.rotation);
+        _SFXPlayer.playPlayerShot();
         // Detect enemies in range of attack
         // Destroy the enemy
     }

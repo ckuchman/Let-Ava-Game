@@ -26,16 +26,16 @@ public class Obstacle : MonoBehaviour
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
             other.GetComponent<Player>().health -= damage;
-            _SFXPlayer.playExplode();
+            _SFXPlayer.playPlayerHit();
             Destroy(gameObject);
         }
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile") && isDestructible) {
-            _SFXPlayer.playExplode();
+            _SFXPlayer.playBasicEnemyDestroy();
             Destroy(gameObject);
         } else if (other.CompareTag("Projectile") && !isDestructible) {
-            _SFXPlayer.playHit();
+            _SFXPlayer.playIndestructableHit();
         }
     }
 }
