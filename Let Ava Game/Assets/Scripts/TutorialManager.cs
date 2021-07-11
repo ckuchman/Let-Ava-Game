@@ -77,14 +77,20 @@ public class TutorialManager : MonoBehaviour
         } else if (popUpIndex == 8) {
             if (endTutorialTime <= 0) { 
                 popUpIndex++; 
+                waitTime = 2f;
             } else {
                 endTutorialTime -= Time.deltaTime;
             }
         } else if (popUpIndex >= 9) {
-            if (player.transform.position.x > 25) {
+            if (player.transform.position.x > 30) {
                 SceneManager.LoadScene("MainMenu"); 
             } else {
                 player.transform.Translate(Vector2.right * speed * Time.deltaTime);
+            }
+            if (waitTime <= 0) {
+                popUpIndex++;
+            } else {
+                waitTime -= Time.deltaTime;
             }
         }
     }
