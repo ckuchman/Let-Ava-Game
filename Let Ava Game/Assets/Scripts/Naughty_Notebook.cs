@@ -5,11 +5,13 @@ using UnityEngine;
 public class Naughty_Notebook : MonoBehaviour
 {
     public GameObject paperplane;
+    public GameObject homework;
     public GameObject NNSpawner;    
 
     private float _timeTillSpawn;
     public float startTimeTillSpawn;
-    public float timeBtwSpawn;
+    public float minTimeBtwSpawn;
+    public float maxTimeBtwSpawn;
     public float startSpeed;
     private bool _hasPaused = false;
     public float pauseTime;
@@ -42,11 +44,15 @@ public class Naughty_Notebook : MonoBehaviour
             _speed = runBackSpeed;
         }
         
-        // Spawns paperplanes
+        // Spawns projectiles
         if (_timeTillSpawn <= 0) {
-            Instantiate(paperplane, transform.position, Quaternion.Euler(0, 0, -35));
-            
-            _timeTillSpawn = timeBtwSpawn;
+            if (Random.value < 0.8) {
+                Instantiate(paperplane, transform.position, Quaternion.Euler(0, 0, -35));
+            } else {
+                Instantiate(homework, transform.position, Quaternion.Euler(0, 0, -35));
+            }
+
+            _timeTillSpawn = Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn);
         } else {
             _timeTillSpawn -= Time.deltaTime;
         }

@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject obstacle_ground;
     public GameObject obstacle_ground2;
+    public GameObject obstacle_ground3;    
     public GameObject obstacle_air;
     public GameObject obstacle_air2;
 
@@ -38,10 +39,15 @@ public class Spawner : MonoBehaviour
                 Instantiate(obst, _startPosition + new Vector3(0.0f, rand_height, 0.0f), Quaternion.identity);
                 
             } else {
-                if (Random.value < 0.5) {
+                float rand = Random.value;
+                
+                if (rand < 0.5) {
                     obst = obstacle_ground;
-                } else {
+                } else if (rand < 0.9) {
                     obst = obstacle_ground2;
+                }
+                else {
+                    obst = obstacle_ground3;
                 }
 
                 Instantiate(obst, transform.position, Quaternion.identity);

@@ -97,9 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperplane: {fileID: 1377034194954696418, guid: e71522c2b96f4aa4c87aaed71840d95b, type: 3}
+  homework: {fileID: 1377034194954696418, guid: 77c97f6e47c88ef46992e250beab1fc2, type: 3}
   NNSpawner: {fileID: 4509737791953562720, guid: 49c61665d6253d7498c59f3b1e418bf2, type: 3}
   startTimeTillSpawn: 4
-  timeBtwSpawn: 2
+  minTimeBtwSpawn: 1.75
+  maxTimeBtwSpawn: 4
   startSpeed: 2
   pauseTime: 0
   runBackXPos: 0

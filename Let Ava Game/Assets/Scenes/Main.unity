@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle_ground: {fileID: 1754417599737178, guid: 6d47fcbe854249f4cb5fde9b8ca19ac9, type: 3}
   obstacle_ground2: {fileID: 1754417599737178, guid: 3b1e0a3f0f9ca61418660daa020a3307, type: 3}
+  obstacle_ground3: {fileID: 1754417599737178, guid: c35dab00c31e18c4da4632b5c3178223, type: 3}
   obstacle_air: {fileID: 1754417599737178, guid: 97a2114ea1948b444a9633088493d075, type: 3}
   obstacle_air2: {fileID: 1754417599737178, guid: a09bb5dbde6fb814ebc651577e0ccdf2, type: 3}
   minTimeBtwSpawn: 1
