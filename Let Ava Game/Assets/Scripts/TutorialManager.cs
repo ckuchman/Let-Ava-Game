@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;  
 
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] popUps;
     private int popUpIndex;
-    public GameObject spawner;
+    public GameObject groundSpawner;
+    public GameObject airSpawner;
+    public float waitTimeVal;
+    public float groundToAirWait;
+    private float waitTime;
+    public float endTutorialTime;
 
     // Start is called before the first frame update
     void Start()
     {
         popUpIndex = 0;
+        waitTime = waitTimeVal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < popUps.Length; i++) {
-            if (i == popUpIndex) {
-                popUps[popUpIndex].SetActive(true);
-            } else {
-                popUps[popUpIndex].SetActive(false);
-            }
+        if (popUpIndex > 0 && popUpIndex < popUps.Length) { 
+            popUps[popUpIndex-1].SetActive(false);
+        }
+        if (popUpIndex < popUps.Length) {
+            popUps[popUpIndex].SetActive(true);
         }
 
         if (popUpIndex <= 1) {
@@ -31,7 +37,53 @@ public class TutorialManager : MonoBehaviour
                 popUpIndex++;
             }
         } else if(popUpIndex == 2) {
-            spawner.SetActive(true);
+            if (waitTime <= 0) {
+                groundSpawner.SetActive(true);
+                popUpIndex++;
+            } else {
+                waitTime -= Time.deltaTime;
+            }
+        } else if(popUpIndex == 3) {
+            if (groundToAirWait <= 0) {
+                popUpIndex++;
+                groundSpawner.SetActive(false);
+                waitTime = waitTimeVal;
+            } else {
+                groundToAirWait -= Time.deltaTime;
+            }
+        } else if (popUpIndex == 4) {
+            if (waitTime <= 0) {
+                popUpIndex++;
+            } else {
+                waitTime -= Time.deltaTime;
+            }
+        } else if (popUpIndex == 5) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                popUpIndex++;
+                waitTime = waitTimeVal;
+            }
+        } else if (popUpIndex == 6) {
+            if (waitTime <= 0) {
+                popUpIndex++;
+            } else {
+                waitTime -= Time.deltaTime;
+            }
+        } else if (popUpIndex == 7) {
+            airSpawner.SetActive(true);
+            popUpIndex++;
+            waitTime = waitTimeVal;
+        } else if (popUpIndex == 8) {
+            if (endTutorialTime <= 0) { 
+                popUpIndex++; 
+            } else {
+                endTutorialTime -= Time.deltaTime;
+            }
+        } else if (popUpIndex == 9) {
+            if (waitTime <= 0) {
+                SceneManager.LoadScene("MainMenu"); 
+            } else {
+                waitTime -= Time.deltaTime;
+            }
         }
     }
 }
