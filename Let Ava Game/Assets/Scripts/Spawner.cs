@@ -80,11 +80,11 @@ public class Spawner : MonoBehaviour
 
         // Update difficulty
         if (minTimeBtwSpawn > maxDifficultyMinTimeBtwSpawn) {
-            minTimeBtwSpawn -= Time.deltaTime * 0.01f;
+            minTimeBtwSpawn -= Time.deltaTime * 0.008f;
         }
 
         if (maxTimeBtwSpawn > maxDifficultyMaxTimeBtwSpawn) {
-            maxTimeBtwSpawn -= Time.deltaTime * 0.04f;
+            maxTimeBtwSpawn -= Time.deltaTime * 0.03f;
         }
     }
 }

@@ -159,10 +159,10 @@ MonoBehaviour:
   obstacle_air2: {fileID: 1754417599737178, guid: a09bb5dbde6fb814ebc651577e0ccdf2, type: 3}
   heart: {fileID: 1754417599737178, guid: e2bcda9a8830e2943b558a66bf6f4d58, type: 3}
   coin: {fileID: 1754417599737178, guid: c0ba81a9b0a91aa45bfb981e15405425, type: 3}
-  minTimeBtwSpawn: 0.25
-  maxTimeBtwSpawn: 2.5
-  maxDifficultyMinTimeBtwSpawn: 0
-  maxDifficultyMaxTimeBtwSpawn: 0
+  minTimeBtwSpawn: 1
+  maxTimeBtwSpawn: 3
+  maxDifficultyMinTimeBtwSpawn: 0.375
+  maxDifficultyMaxTimeBtwSpawn: 1
   minAirHeight: 6
   maxAirHeight: 12
 --- !u!4 &70670607
@@ -298,7 +298,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2005,7 +2005,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
